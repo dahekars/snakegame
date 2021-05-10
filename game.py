@@ -61,7 +61,6 @@ def run_game():
             game_display.fill(black)
             game_over_message = message.render(f"Game over \n Score: {snake_length - 1}", True, red)
             game_display.blit(game_over_message, [width/2, height/2])
-            print(snake_length -1)
             pygame.display.update()
 
             for event in pygame.event.get():
@@ -72,7 +71,7 @@ def run_game():
                     if event.key == pygame.K_2:
                         run_game()
                 
-                if event.key == pygame.QUIT:
+                if event.type == pygame.QUIT:
                     game_over = True
                     game_close = False
 
@@ -115,7 +114,7 @@ def run_game():
                 game_over = True
         
         draw_snake(snake_size, snake_pixel)
-        print(snake_length - 1)
+        scores_display(snake_length-1)
 
         pygame.display.update()
 
@@ -126,7 +125,7 @@ def run_game():
 
         clock.tick(snake_speed)
     
-    pygame.QUIT()
+    pygame.QUIT
     quit()
 
 run_game()
